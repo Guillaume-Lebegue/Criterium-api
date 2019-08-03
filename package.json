@@ -1,0 +1,15 @@
+{
+    "name": "criterium-api",
+    "version": "0.0.1",
+    "description": "Back api for my app about vtt",
+    "main": "app.js",
+    "homepage": "https://github.com/Guillaume-Lebegue/Criterium",
+    "author": "Guillaume Lebegue <guillaume.lebegue@free.fr>",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Guillaume-Lebegue/Criterium-api.git"
+    },
+    "dependencies": {
+        "express": "^4.17.1"
+    }
+}
