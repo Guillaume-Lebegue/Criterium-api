@@ -1,0 +1,14 @@
+{
+    "development": {
+        "config_id": "development",
+        "endPoint": "",
+        "app_name": "Criterium API - dev",
+        "node_port": "3000"
+    },
+    "production": {
+        "config_id": "production",
+        "endPoint": "",
+        "app_name": "Criterium API - prod",
+        "node_port": "3000"
+    }
+}
