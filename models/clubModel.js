@@ -12,7 +12,7 @@ const clubSchema = new Schema({
     address: {
         country: { type: String, required: true },
         town: { type: String, required: true },
-        postalCode: { type: String, validate: [validator.isPostalCode, 'postalCode invalid'] }
+        postalCode: { type: String, validate: [testPostalCode, 'postalCode invalid'] }
     },
     licenced: {
         registration: [{ type: ObjectId, ref: 'User' }],
@@ -29,6 +29,11 @@ const clubSchema = new Schema({
 }, {
     timestamps: true
 })
+
+// Custom validator
+function testPostalCode(postalCode) {
+    return validator.isPostalCode(postalCode, 'FR');
+}
 
 clubSchema.plugin(mongoosePaginate);
 

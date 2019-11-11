@@ -35,13 +35,14 @@ class userDataService {
         return User.publicOnly(query).exec();
     }
 
-    getAllUsersPaginate(query, limit, offset, sort = null, select = null) {
+    getAllUsersPaginate(query, limit, offset, sort = null) {
         return new Promise((resolve, reject) => {
+            const select = User.getPublicFields();
             const opts = { offset, limit, sort, select };
 
-            User.paginate({ query }, opts)
+            User.paginate( query , opts)
                 .then(result => resolve(result))
-                .catch(error => reject(error))
+                .catch(error => reject(error));
         })
     }
 

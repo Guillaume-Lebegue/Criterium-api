@@ -72,6 +72,10 @@ userSchema.methods.comparePassword = function(plainTextPassword, cb) {
 // Public / Private fields
 const nPublicFields = ['-email', '-password', '-phone', 'address'];
 
+userSchema.statics.getPublicFields = function() {
+    return nPublicFields;
+}
+
 userSchema.statics.publicOnly = function(queryObject) {return queryObject.select(nPublicFields); }
 
 
