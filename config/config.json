@@ -3,12 +3,22 @@
         "config_id": "development",
         "endPoint": "",
         "app_name": "Criterium API - dev",
-        "node_port": "3000"
+        "node_port": "3000",
+        "mongoDb": {
+            "devDbUrl": "mongodb://127.0.0.1:27017/Criterium",
+            "debug": true,
+            "secret": "meansecure"
+        }
     },
     "production": {
         "config_id": "production",
         "endPoint": "",
         "app_name": "Criterium API - prod",
-        "node_port": "3000"
+        "node_port": "3000",
+        "mongoDb": {
+            "devDbUrl": "mongodb://127.0.0.1:27017/Criterium",
+            "debug": true,
+            "secret": "meansecure"
+        }
     }
 }
