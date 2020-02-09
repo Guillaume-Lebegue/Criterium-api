@@ -22,7 +22,7 @@ const userSchema = new Schema({
     address: { type: String },
     canCreate: { type: Boolean, default: false },
     isAdmin: { type: Boolean, default: false },
-    lastDate: { type: Date, default: Date.now() }
+    lastCoDate: { type: Date, default: Date.now() }
 }, {
     timestamps: true,
     toObject: {virtuals: true},
