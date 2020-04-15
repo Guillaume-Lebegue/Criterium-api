@@ -70,7 +70,7 @@ userSchema.methods.comparePassword = function(plainTextPassword, cb) {
 }
 
 // Public / Private fields
-const nPublicFields = ['-email', '-password', '-phone', 'address'];
+const nPublicFields = ['-email', '-password', '-phone', '-address'];
 
 userSchema.statics.getPublicFields = function() {
     return nPublicFields;

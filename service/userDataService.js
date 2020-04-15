@@ -12,13 +12,13 @@ class userDataService {
     };
 
     getUserByLicence(licence, all = false) {
-        const query = User.find({ licence });
+        const query = User.findOne({ licence });
 
         return (!all ? User.publicOnly(query) : query).exec();
     }
 
     getUsersByEmail(email) {
-        const query = User.find({ email });
+        const query = User.findOne({ email });
 
         return User.publicOnly(query).exec();
     };
@@ -92,6 +92,27 @@ class userDataService {
                     if (error) reject(error)
                     else resolve(doc);
                 })
+            })
+        })
+    }
+
+    signIn(userEmail, userPassword) {
+        return new Promise((resolve, reject) => {
+            User.findOne({ email: userEmail }, (error, user) => {
+                if (error)
+                    reject(error);
+                if (!user)
+                    reject('Email or Password doesn\'t match.');
+                else {
+                    user.comparePassword(userPassword, async (err, isMatch) => {
+                        if (err)
+                            reject(err);
+                        else if (isMatch)
+                            resolve(user);
+                        else
+                            reject('Email or Password doesn\'t match.');
+                    })
+                }
             })
         })
     }
