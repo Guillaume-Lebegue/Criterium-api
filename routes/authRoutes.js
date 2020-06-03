@@ -34,8 +34,8 @@ const authController = require('../controllers/authController');
  * @bodyparam {String} email
  * @bodyparam {String} password
  */
-    router.route('/signup')
-        .post(authController.signUpAction);
+router.route('/signup')
+    .post(authController.signUpAction);
 
         /**
  * Route signing in
@@ -45,7 +45,7 @@ const authController = require('../controllers/authController');
  * @bodyparam {String} email
  * @bodyparam {String} password
  */
-    router.route('/signin')
+router.route('/signin')
     .post(authController.signInAction);
 
 module.exports = router;

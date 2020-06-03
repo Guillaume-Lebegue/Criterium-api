@@ -36,11 +36,16 @@ const optionalTokenAuth = (req, res, next) => {
     })(req, res, next);
 }
 
+const isUser = (req, userId) => req.user && req.user._id.toString() === userId;
+const isEmailOwner = (req, email) => req.user && req.user.email === email;
+const isLicenceOwner = (req, licence) => req.user && req.user.licence == licence;
+
 const generateToken = (payload) => jwt.sign(payload, jwtOptions.secretOrKey);
 const generateUserToken = (user) => ({
     token: generateToken({
         id: user.id,
-        email: user.email
+        email: user.email,
+        licence: user.licence
     })
 });
 
@@ -51,5 +56,10 @@ module.exports = {
     middlewares: {
         optionalTokenAuth,
         tokenAuth
+    },
+    guards: {
+        isUser,
+        isEmailOwner,
+        isLicenceOwner
     }
-}
+};

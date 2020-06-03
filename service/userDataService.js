@@ -17,10 +17,10 @@ class userDataService {
         return (!all ? User.publicOnly(query) : query).exec();
     }
 
-    getUsersByEmail(email) {
+    getUsersByEmail(email, all = false) {
         const query = User.findOne({ email });
 
-        return User.publicOnly(query).exec();
+        return (!all ? User.publicOnly(query) : query).exec();
     };
 
     getUsersByFirstName(firstName) {
